@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="colorBackground" format="reference|color" />
+    <attr name="colorSelected" format="reference|color" />
+    <attr name="colorSelectedLight" format="reference|color" />
+    <attr name="rippleColor" format="reference|color" />
+    <attr name="colorIcon" format="reference|color" />
+    <attr name="textAppearanceBottomDrawerTitle" format="reference"/>
+
+</resources>

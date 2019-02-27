@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorSelected">#0077ff</color>
+    <color name="colorSelectedLight">#1F0077ff</color>
+
+    <color name="colorLightBackground">#FFFFFF</color>
+    <color name="colorDarkBackground">#141414</color>
+
+    <color name="colorIconLight">#212121</color>
+    <color name="colorIconDark">#FFFFFF</color>
+</resources>
