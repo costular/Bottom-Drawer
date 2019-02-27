@@ -1,4 +1,4 @@
-package com.costular.bottomnavigationdrawer.model
+package com.costular.bottomdrawer.model
 
 import android.os.Parcel
 import android.os.Parcelable

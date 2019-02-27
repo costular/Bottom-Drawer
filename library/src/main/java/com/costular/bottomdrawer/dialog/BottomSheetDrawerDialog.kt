@@ -1,4 +1,4 @@
-package com.costular.bottomnavigationdrawer.dialog
+package com.costular.bottomdrawer.dialog
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,8 +9,8 @@ import androidx.annotation.StyleRes
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.costular.bottomnavigationdrawer.R
-import com.costular.bottomnavigationdrawer.model.DrawerItem
+import com.costular.bottomdrawer.R
+import com.costular.bottomdrawer.model.DrawerItem
 
 class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
 
@@ -42,6 +42,8 @@ class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
 
     private fun setUp(bundle: Bundle) {
         items = bundle.getParcelableArray(PARAM_ITEMS) as Array<DrawerItem>
+        val position = bundle.getInt("PARAM_POSITION", -1)
+
         bottomDrawerAdapter = BottomDrawerAdapter(items) { drawerItem, position ->
             clickListener?.onClick(drawerItem, position)
 
@@ -51,6 +53,10 @@ class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
             }, 300)
         }
         setUpRecycler()
+
+        if (position > -1) {
+            bottomDrawerAdapter.selectPosition(position)
+        }
     }
 
     private fun setUpRecycler() {
@@ -62,7 +68,7 @@ class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-
+        outState.putInt("PARAM_POSITION", bottomDrawerAdapter.selectedPosition)
         super.onSaveInstanceState(outState)
     }
 

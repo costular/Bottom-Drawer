@@ -1,8 +1,7 @@
-package com.costular.bottomnavigationdrawer.dialog
+package com.costular.bottomdrawer.dialog
 
 import android.app.Dialog
 import android.os.Bundle
-import com.costular.bottomnavigationdrawer.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

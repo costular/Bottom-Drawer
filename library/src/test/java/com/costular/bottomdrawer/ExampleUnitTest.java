@@ -1,4 +1,4 @@
-package com.costular.bottomnavigationdrawer;
+package com.costular.bottomdrawer;
 
 import org.junit.Test;
 

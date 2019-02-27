@@ -1,8 +1,8 @@
-package com.costular.bottomnavigationdrawer
+package com.costular.bottomdrawer
 
-import com.costular.bottomnavigationdrawer.model.Builder
-import com.costular.bottomnavigationdrawer.model.DrawerItem
-import com.costular.bottomnavigationdrawer.model.DrawerItemBuilder
+import com.costular.bottomdrawer.model.Builder
+import com.costular.bottomdrawer.model.DrawerItem
+import com.costular.bottomdrawer.model.DrawerItemBuilder
 
 class BottomDrawerBuilder : Builder<BottomDrawer>() {
 

@@ -1,18 +1,15 @@
-package com.costular.bottomnavigationdrawer.dialog
+package com.costular.bottomdrawer.dialog
 
-import android.content.Context
 import android.graphics.PorterDuff
-import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.costular.bottomnavigationdrawer.R
-import com.costular.bottomnavigationdrawer.model.DrawerItem
-import com.costular.bottomnavigationdrawer.util.AttrHelper
-import java.lang.ref.WeakReference
+import com.costular.bottomdrawer.R
+import com.costular.bottomdrawer.model.DrawerItem
+import com.costular.bottomdrawer.util.AttrHelper
 
 class BottomDrawerAdapter(
     val items: Array<DrawerItem>,
@@ -30,6 +27,12 @@ class BottomDrawerAdapter(
 
     override fun onBindViewHolder(holder: BottomDrawerViewHolder, position: Int) {
         holder.bind(items[position])
+    }
+
+    fun selectPosition(newPosition: Int) {
+        notifyItemChanged(selectedPosition)
+        selectedPosition = newPosition
+        notifyItemChanged(selectedPosition)
     }
 
     inner class BottomDrawerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -61,9 +64,7 @@ class BottomDrawerAdapter(
             }
 
             itemView.setOnClickListener {
-                notifyItemChanged(selectedPosition)
-                selectedPosition = adapterPosition
-                notifyItemChanged(selectedPosition)
+                selectPosition(adapterPosition)
                 clickListener.invoke(drawerItem, adapterPosition)
             }
         }

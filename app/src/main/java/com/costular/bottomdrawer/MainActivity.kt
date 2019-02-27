@@ -3,8 +3,6 @@ package com.costular.bottomdrawer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.costular.bottomnavigationdrawer.BottomDrawer
-import com.costular.bottomnavigationdrawer.model.DrawerItem
 
 class MainActivity : AppCompatActivity() {
 

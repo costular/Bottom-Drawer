@@ -1,4 +1,4 @@
-package com.costular.bottomnavigationdrawer.model
+package com.costular.bottomdrawer.model
 
 abstract class Builder<out T> {
 

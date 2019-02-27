@@ -1,4 +1,4 @@
-package com.costular.bottomnavigationdrawer;
+package com.costular.bottomdrawer;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;

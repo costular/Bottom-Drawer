@@ -1,16 +1,31 @@
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+publish {
+
+    def groupProjectID = 'com.costular.bottomdrawer'
+    def artifactProjectID = 'bottom-drawer'
+    def publishVersionID = '0.1.0'
+
+    userOrg = 'costular'
+    repoName = 'bottom-drawer'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Android Bottom Drawer from Material.io guidelines'
+    website = 'https://github.com/costular/Bottom-Drawer'
+
+}
+
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "0.1.0"
 
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

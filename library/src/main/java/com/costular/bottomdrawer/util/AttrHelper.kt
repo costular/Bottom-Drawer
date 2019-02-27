@@ -1,10 +1,8 @@
-package com.costular.bottomnavigationdrawer.util
+package com.costular.bottomdrawer.util
 
 import android.content.Context
-import androidx.core.content.res.TypedArrayUtils.getResourceId
 import androidx.core.content.ContextCompat
 import androidx.annotation.ColorInt
-import android.content.res.TypedArray
 import androidx.annotation.AttrRes
 
 

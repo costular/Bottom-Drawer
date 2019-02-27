@@ -1,8 +1,8 @@
-package com.costular.bottomnavigationdrawer
+package com.costular.bottomdrawer
 
 import androidx.fragment.app.FragmentManager
-import com.costular.bottomnavigationdrawer.dialog.BottomSheetDrawerDialog
-import com.costular.bottomnavigationdrawer.model.DrawerItem
+import com.costular.bottomdrawer.dialog.BottomSheetDrawerDialog
+import com.costular.bottomdrawer.model.DrawerItem
 
 class BottomDrawer internal constructor(
     val theme: Int,
