@@ -1,8 +1,9 @@
-package com.costular.bottomdrawer
+package com.costular.bottomdrawerapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.costular.bottomdrawer.BottomDrawer
 
 class MainActivity : AppCompatActivity() {
 
