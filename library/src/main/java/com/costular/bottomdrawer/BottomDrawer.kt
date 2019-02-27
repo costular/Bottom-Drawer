@@ -7,7 +7,8 @@ import com.costular.bottomdrawer.model.DrawerItem
 class BottomDrawer internal constructor(
     val theme: Int,
     val items: List<DrawerItem>,
-    val clickListener: (drawerItem: DrawerItem, position: Int) -> Unit
+    val selectedPosition: Int,
+    val clickListener: (drawerItem: DrawerItem, position: Int) -> Boolean
 ) {
 
     var bottomSheetDrawerDialog: BottomSheetDrawerDialog? = null
@@ -24,7 +25,7 @@ class BottomDrawer internal constructor(
 
     fun show(fragmentManager: FragmentManager) {
         if (bottomSheetDrawerDialog == null) {
-            bottomSheetDrawerDialog = BottomSheetDrawerDialog.newInstance(items, theme, clickListener)
+            bottomSheetDrawerDialog = BottomSheetDrawerDialog.newInstance(items, theme, selectedPosition, clickListener)
         }
 
         bottomSheetDrawerDialog?.show(fragmentManager, "bottom-drawer")

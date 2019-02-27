@@ -15,7 +15,7 @@ import com.costular.bottomdrawer.model.DrawerItem
 class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
 
     interface ClickCallback {
-        fun onClick(drawerItem: DrawerItem, position: Int)
+        fun onClick(drawerItem: DrawerItem, position: Int): Boolean
     }
 
     private val handler by lazy { Handler() }
@@ -28,6 +28,7 @@ class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
     }
 
     var clickListener: ClickCallback? = null
+    var selectedPosition: Int = 0
     lateinit var items: Array<DrawerItem>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -56,6 +57,8 @@ class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
 
         if (position > -1) {
             bottomDrawerAdapter.selectPosition(position)
+        } else {
+            bottomDrawerAdapter.selectPosition(selectedPosition)
         }
     }
 
@@ -82,16 +85,18 @@ class BottomSheetDrawerDialog : BaseBottomSheetDialog() {
         fun newInstance(
             items: List<DrawerItem>,
             @StyleRes dialogTheme: Int,
-            clickCallback: (drawerItem: DrawerItem, position: Int) -> Unit = { _, _ -> }
+            selectedPosition: Int,
+            clickCallback: (drawerItem: DrawerItem, position: Int) -> Boolean = { _, _ -> true }
         ): BottomSheetDrawerDialog {
             return BottomSheetDrawerDialog().apply {
                 arguments = Bundle().apply {
                     putParcelableArray(PARAM_ITEMS, items.toTypedArray())
-                    theme = dialogTheme
-                    clickListener = object : ClickCallback {
-                        override fun onClick(drawerItem: DrawerItem, position: Int) {
-                            clickCallback.invoke(drawerItem, position)
-                        }
+                }
+                this.selectedPosition = selectedPosition
+                theme = dialogTheme
+                clickListener = object : ClickCallback {
+                    override fun onClick(drawerItem: DrawerItem, position: Int): Boolean {
+                        return clickCallback.invoke(drawerItem, position)
                     }
                 }
             }

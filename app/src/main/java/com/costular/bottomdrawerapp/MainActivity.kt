@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                     drawableRes = R.drawable.ic_settings
                 }
                 clickListener = { drawerItem, position ->
-
+                    true
                 }
             }
         }

@@ -8,12 +8,13 @@ class BottomDrawerBuilder : Builder<BottomDrawer>() {
 
     var items: MutableList<DrawerItem> = mutableListOf()
     var theme: Int = R.style.BottomNavigationDrawer_Light
-    var clickListener: (drawerItem: DrawerItem, position: Int) -> Unit = { _, _ -> }
+    var selectedPosition: Int = 0
+    var clickListener: (drawerItem: DrawerItem, position: Int) -> Boolean = { _, _ -> true }
 
     fun drawerItem(block: DrawerItemBuilder.() -> Unit) = items.add(DrawerItemBuilder().apply(block).build())
 
     override fun build(): BottomDrawer {
-        return BottomDrawer(theme, items, clickListener)
+        return BottomDrawer(theme, items, selectedPosition, clickListener)
     }
 
 }

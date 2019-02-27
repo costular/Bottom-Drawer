@@ -13,7 +13,7 @@ import com.costular.bottomdrawer.util.AttrHelper
 
 class BottomDrawerAdapter(
     val items: Array<DrawerItem>,
-    val clickListener: (drawerItem: DrawerItem, position: Int) -> Unit
+    val clickListener: (drawerItem: DrawerItem, position: Int) -> Boolean
 ) : RecyclerView.Adapter<BottomDrawerAdapter.BottomDrawerViewHolder>() {
 
     var selectedPosition = 0
@@ -48,7 +48,7 @@ class BottomDrawerAdapter(
             itemTitle.setText(drawerItem.stringRes)
             itemIcon.setImageResource(drawerItem.drawableRes)
 
-            if(selectedPosition == adapterPosition) {
+            if (selectedPosition == adapterPosition) {
                 itemView.isActivated = true
 
                 val selectedColor = AttrHelper.getAttributeColor(itemView.context, R.attr.colorSelected)
@@ -64,8 +64,11 @@ class BottomDrawerAdapter(
             }
 
             itemView.setOnClickListener {
-                selectPosition(adapterPosition)
-                clickListener.invoke(drawerItem, adapterPosition)
+                val shouldSelect = clickListener.invoke(drawerItem, adapterPosition)
+
+                if (shouldSelect) {
+                    selectPosition(adapterPosition)
+                }
             }
         }
     }
